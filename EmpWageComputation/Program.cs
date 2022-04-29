@@ -9,16 +9,21 @@ namespace EmpWageComputation
             Console.WriteLine("------------- WELCOME TO THE EMPLOYEE WAGE COMPUTATION ------------");
             Console.WriteLine();
             int isPresent = 1;
+            int empRatePerHr = 20;
+            int empHr = 0;
+            int empWage = 0;
             Random random = new Random();
             int randomCheck = random.Next(2);
             if(randomCheck==isPresent)
             {
-                Console.WriteLine("The Employee is Present");
+                empHr = 8;
             }
             else
             {
-                Console.WriteLine("The Employee is Absent");
+                empHr = 0;
             }
+            empWage = empHr * empRatePerHr;
+            Console.WriteLine("Employee Wage = "+empWage);
         }
     }
 }
