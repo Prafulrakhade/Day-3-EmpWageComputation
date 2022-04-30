@@ -19,7 +19,7 @@ namespace EmpWageComputation
             if(randomCheck==isPartTime)
             {
                 Console.WriteLine("Employee is present Part Time : ");
-                empHr = 8;
+                empHr = 4;
             }
             else if(randomCheck==isFullTime)
             {
