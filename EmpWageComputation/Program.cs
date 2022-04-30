@@ -12,27 +12,33 @@ namespace EmpWageComputation
             int isFullTime = 2;
             int isPartTime = 1;
             int empRatePerHr = 20;
+            int numOfWorkingDays = 20;
             int empHr = 0;
             int empWage = 0;
-            Random random = new Random();
-            int randomCheck = random.Next(3);
-            switch(randomCheck)
+            int totalSalary = 0;
+            for (int days=1; days <= numOfWorkingDays; days++)
             {
-                case 1:
-                    Console.WriteLine("Employee is Present Part Time : ");
-                    empHr = 4;
-                    break;
-                case 2:
-                    Console.WriteLine("Employee is Present Full Day : ");
-                    empHr = 8;
-                    break;
-                default:
-                    Console.WriteLine("Employee is Absent : ");
-                    empHr = 0;
-                    break;
+                Random random = new Random();
+                int randomCheck = random.Next(3);
+                switch (randomCheck)
+                {
+                    case 1:
+                        Console.WriteLine("Employee is Present Part Time : ");
+                        empHr = 4;
+                        break;
+                    case 2:
+                        Console.WriteLine("Employee is Present Full Day : ");
+                        empHr = 8;
+                        break;
+                    default:
+                        Console.WriteLine("Employee is Absent : ");
+                        empHr = 0;
+                        break;
+                }
+                empWage += empHr ;
+                totalSalary = empWage * empRatePerHr;
+                Console.WriteLine("Employee Wage For Month = " + totalSalary);
             }
-            empWage = empHr * empRatePerHr;
-            Console.WriteLine("Employee Wage = "+empWage);
         }
     }
 }
