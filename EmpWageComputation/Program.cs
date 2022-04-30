@@ -13,11 +13,17 @@ namespace EmpWageComputation
             int isPartTime = 1;
             int empRatePerHr = 20;
             int numOfWorkingDays = 20;
+            int totalWorkingHrs = 100;
+            int totalWorkingDays = 20;
+            int workingDay = 0;
+            int workingHrs = 0;
+            int totalHrs = 0;
             int empHr = 0;
             int empWage = 0;
             int totalSalary = 0;
-            for (int days=1; days <= numOfWorkingDays; days++)
+            while (workingHrs <= totalWorkingHrs && workingDay < totalWorkingDays)
             {
+                workingDay++;
                 Random random = new Random();
                 int randomCheck = random.Next(3);
                 switch (randomCheck)
@@ -35,10 +41,13 @@ namespace EmpWageComputation
                         empHr = 0;
                         break;
                 }
-                empWage += empHr ;
-                totalSalary = empWage * empRatePerHr;
-                Console.WriteLine("Employee Wage For Month = " + totalSalary);
+                workingHrs += empHr;
+                Console.WriteLine("Days : " + workingDay + " :: Emp Working hours : " + workingHrs);
+                totalHrs += empHr;
             }
+            Console.WriteLine("Total Working Hrs : "+totalHrs);
+            totalSalary = totalHrs * empRatePerHr;
+            Console.WriteLine("Total Employee wage for a month : "+totalSalary);
         }
     }
 }
