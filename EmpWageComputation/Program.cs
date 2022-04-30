@@ -16,20 +16,20 @@ namespace EmpWageComputation
             int empWage = 0;
             Random random = new Random();
             int randomCheck = random.Next(3);
-            if(randomCheck==isPartTime)
+            switch(randomCheck)
             {
-                Console.WriteLine("Employee is present Part Time : ");
-                empHr = 8;
-            }
-            else if(randomCheck==isFullTime)
-            {
-                Console.WriteLine("Employee is present Full Time : ");
-                empHr = 8;
-            }
-            else
-            {
-                Console.WriteLine("Employee is absent : ");
-                empHr = 0;
+                case 1:
+                    Console.WriteLine("Employee is Present Part Time : ");
+                    empHr = 4;
+                    break;
+                case 2:
+                    Console.WriteLine("Employee is Present Full Day : ");
+                    empHr = 8;
+                    break;
+                default:
+                    Console.WriteLine("Employee is Absent : ");
+                    empHr = 0;
+                    break;
             }
             empWage = empHr * empRatePerHr;
             Console.WriteLine("Employee Wage = "+empWage);
