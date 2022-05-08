@@ -10,7 +10,7 @@ namespace EmpWageComputation
         public const int numOfWorkingDays = 20;
         public const int totalWorkingHrs = 100;
         public const int totalWorkingDays = 20;
-        
+
         public static int ComputeEmpWage()
         {
             int workingDay = 0;
