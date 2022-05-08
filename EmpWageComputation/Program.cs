@@ -6,19 +6,16 @@ namespace EmpWageComputation
     {
         public const int isFullTime = 2;
         public const int isPartTime = 1;
-        public const int empRatePerHr = 20;
-        public const int numOfWorkingDays = 20;
-        public const int totalWorkingHrs = 100;
-        public const int totalWorkingDays = 20;
 
-        public static int ComputeEmpWage()
+        // in static method No Need To create a object of the class
+        public static int ComputeEmpWage(string company, int empRatePerHr, int numOfWorkingDays, int totalWorkingHrs) //method with argument and return type
         {
             int workingDay = 0;
             int workingHrs = 0;
             int totalHrs = 0;
             int empHr = 0;
             int totalSalary = 0;
-            while (workingHrs <= totalWorkingHrs && workingDay < totalWorkingDays)
+            while (workingHrs <= totalWorkingHrs && workingDay < numOfWorkingDays)
             {
                 workingDay++;
                 Random random = new Random();
@@ -39,19 +36,25 @@ namespace EmpWageComputation
                         break;
                 }
                 workingHrs += empHr;
-                Console.WriteLine("Days : " + workingDay + " :: Emp Working hours : " + workingHrs);
+                Console.WriteLine("Days : " + workingDay + " :: Emp Working Hours : " + workingHrs);
                 totalHrs += empHr;
+                Console.WriteLine();
             }
-            Console.WriteLine("Total Working Hrs : " + totalHrs);
+            Console.WriteLine("Total Working Hrs : " + totalHrs + " For : " + company);
             totalSalary = totalHrs * empRatePerHr;
-            Console.WriteLine("Total Employee wage for a month : " + totalSalary);
+            Console.WriteLine("Total Employee Wage For : " + company  +" Total Salary : " + totalSalary);
+            Console.WriteLine("\n");
             return totalSalary;
         }
         static void Main(string[] args)
         {
             Console.WriteLine("------------- WELCOME TO THE EMPLOYEE WAGE COMPUTATION ------------");
             Console.WriteLine();
-            ComputeEmpWage();
+
+            // in static method No Need To create a object of the class
+            ComputeEmpWage("TCS",20,20,100);      // (company, empRatePerHrs, numOfWorkingDay, totalWorkingHrs)
+            ComputeEmpWage("WIPRO", 15, 15, 80);  // (company, empRatePerHrs, numOfWorkingDay, totalWorkingHrs)
+            ComputeEmpWage("INFOSYS", 30, 20, 80);// (company, empRatePerHrs, numOfWorkingDay, totalWorkingHrs)
         }
     }
 }
