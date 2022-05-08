@@ -4,22 +4,19 @@ namespace EmpWageComputation
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public const int isFullTime = 2;
+        public const int isPartTime = 1;
+        public const int empRatePerHr = 20;
+        public const int numOfWorkingDays = 20;
+        public const int totalWorkingHrs = 100;
+        public const int totalWorkingDays = 20;
+        
+        public static int ComputeEmpWage()
         {
-            Console.WriteLine("------------- WELCOME TO THE EMPLOYEE WAGE COMPUTATION ------------");
-            Console.WriteLine();
-            int isPresent = 1;
-            int isFullTime = 2;
-            int isPartTime = 1;
-            int empRatePerHr = 20;
-            int numOfWorkingDays = 20;
-            int totalWorkingHrs = 100;
-            int totalWorkingDays = 20;
             int workingDay = 0;
             int workingHrs = 0;
             int totalHrs = 0;
             int empHr = 0;
-            int empWage = 0;
             int totalSalary = 0;
             while (workingHrs <= totalWorkingHrs && workingDay < totalWorkingDays)
             {
@@ -45,9 +42,16 @@ namespace EmpWageComputation
                 Console.WriteLine("Days : " + workingDay + " :: Emp Working hours : " + workingHrs);
                 totalHrs += empHr;
             }
-            Console.WriteLine("Total Working Hrs : "+totalHrs);
+            Console.WriteLine("Total Working Hrs : " + totalHrs);
             totalSalary = totalHrs * empRatePerHr;
-            Console.WriteLine("Total Employee wage for a month : "+totalSalary);
+            Console.WriteLine("Total Employee wage for a month : " + totalSalary);
+            return totalSalary;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("------------- WELCOME TO THE EMPLOYEE WAGE COMPUTATION ------------");
+            Console.WriteLine();
+            ComputeEmpWage();
         }
     }
 }
