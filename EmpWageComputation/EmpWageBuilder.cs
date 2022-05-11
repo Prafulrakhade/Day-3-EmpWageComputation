@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmpWageComputation
 {
-    internal class EmpWageBuilderArray
+    internal class EmpWageBuilderArray:IComputeEmpWage
     {
         public const int isFullTime = 2;
         public const int isPartTime = 1;
@@ -31,7 +31,7 @@ namespace EmpWageComputation
             }
         }
 
-        private int computeEmpWage(CompanyEmpWage companyEmpWage)
+        public int computeEmpWage(CompanyEmpWage companyEmpWage)
         {
             int workingDays = 0;
             int workingHrs = 0;
